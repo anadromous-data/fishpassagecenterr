@@ -1,0 +1,19 @@
+Package: fishpassagecenterr
+Type: Package
+Title: R Client to extract Fish Passage Center Counts
+Version: 0.1.0
+Author: Stuart Illson
+Maintainer: Stuart Illson <stuart.illson@gmail.com>
+Description: An R HTTP client to load and manipulate either daily or historical counts for anadramous fish in the Columbia River Basin.
+License: MIT Open Source
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Imports:
+    crul (>= 0.4.0),
+    jsonlite,
+    XML
+Suggests:
+    roxygen2 (>= 6.0.1),
+    testthat
+RoxygenNote: 6.0.1
