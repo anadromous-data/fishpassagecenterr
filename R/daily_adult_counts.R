@@ -16,14 +16,27 @@ daily_adult_counts <- function(species=NULL, location=NULL) {
   # call API
   data <- callapi(path)
 
-  # parse XML response
-  parsed_response <- if (XML::isXMLString(data)) {
+  # parse an XML response
+  parsed_response <- if (XML::isXMLString(data) == FALSE) {
     stop('Error from the Server')
   }
   else {
-    return(XML::xmlParse(data))
+    (XML::xmlParse(data))
+  }
+
+  # convert XML response to a dataframe
+  nodeset <- XML::xpathApply(XML::xmlRoot(parsed_response), "//item")
+
+  # Dam name f(x)
+
+  for (i in 1:length(nodeset)) {
+    if(i==1) {
+
+    }
   }
 }
 
-
-
+# Dam name f(x)
+extract_dam_name <- function(str) {
+  trimws(gsub("\\(?[0-9,.]+\\)?.*", '', str))
+}
